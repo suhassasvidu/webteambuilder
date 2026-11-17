@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchMe | Student Research Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>try{var t=localStorage.getItem('rm_theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="public">
+
+<header class="header">
+    <a href="#home" class="logo"> <i class="fas fa-search"></i> researchme. </a>
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#projects">projects</a>
+        <a href="#agent">ai agent</a>
+        <a href="#mentors">mentors</a>
+        <a href="#submit">submit</a>
+        <a href="#review">stories</a>
+        <a href="#resources">resources</a>
+        <a href="#profile" id="nav-profile" hidden><i class="fas fa-user-circle"></i> <span id="nav-name"></span></a>
+        <a href="#login" id="nav-login" class="nav-btn">login</a>
+    </nav>
+    <button class="theme-btn fas fa-moon" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"></button>
+    <div id="menu-btn" class="fas fa-bars"></div>
+</header>
+
+<section class="home" id="home">
+    <div class="image">
+        <div class="collage">
+            <img class="main" src="image/blog-1.jpg" alt="Student researcher examining a sample in the lab">
+            <img class="sub" src="image/blog-2.jpg" alt="Hands typing notes on a laptop">
+            <div class="chip c1"><i class="fas fa-robot"></i> AI agent online</div>
+            <div class="chip c2"><i class="fas fa-book-open"></i> 2,400+ projects</div>
+        </div>
+    </div>
+    <div class="content">
+        <h3><small>researchme</small>research made simple for students</h3>
+        <p class="rotator-line">find your next <b class="rot" id="rotator">topic</b></p>
+        <p>Discover projects, plan your study, get help from an AI agent and share your findings with students and mentors in one place.</p>
+        <a href="#agent" class="btn"> ask the ai agent <span class="fas fa-chevron-right"></span> </a>
+        <a href="#projects" class="btn"> browse projects <span class="fas fa-chevron-right"></span> </a>
+    </div>
+</section>
+
+<section class="icons-container">
+    <div class="icons"><i class="fas fa-book"></i><h3>2,400+</h3><p>projects shared</p></div>
+    <div class="icons"><i class="fas fa-users"></i><h3>8,000+</h3><p>student researchers</p></div>
+    <div class="icons"><i class="fas fa-user-graduate"></i><h3>150+</h3><p>mentors</p></div>
+    <div class="icons"><i class="fas fa-university"></i><h3>60+</h3><p>partner schools</p></div>
+</section>
+
+<section class="services" id="features">
+    <h1 class="heading"> platform <span>features</span> </h1>
+    <div class="box-container">
+        <div class="box"><i class="fas fa-lightbulb"></i><h3>topic finder</h3><p>Turn a subject you like into a focused research question you can actually finish.</p><a href="#agent" class="btn"> try it <span class="fas fa-chevron-right"></span> </a></div>
+        <div class="box"><i class="fas fa-robot"></i><h3>ai research agent</h3><p>Get help with outlines, methods, abstracts, citations and timelines at any hour.</p><a href="#agent" class="btn"> chat now <span class="fas fa-chevron-right"></span> </a></div>
+        <div class="box"><i class="fas fa-search"></i><h3>project library</h3><p>Search and filter projects by field and level to see what others have done.</p><a href="#projects" class="btn"> explore <span class="fas fa-chevron-right"></span> </a></div>
+        <div class="box"><i class="fas fa-user-graduate"></i><h3>mentor feedback</h3><p>Connect with university researchers who review your plan and draft.</p><a href="#mentors" class="btn"> meet mentors <span class="fas fa-chevron-right"></span> </a></div>
+        <div class="box"><i class="fas fa-quote-right"></i><h3>citation help</h3><p>Format sources in APA with clear patterns for articles, books and websites.</p><a href="#agent" class="btn"> format <span class="fas fa-chevron-right"></span> </a></div>
+        <div class="box"><i class="fas fa-paper-plane"></i><h3>publish your work</h3><p>Share your project with the community and collect likes and feedback.</p><a href="#submit" class="btn"> submit <span class="fas fa-chevron-right"></span> </a></div>
+    </div>
+</section>
+
+<section class="projects" id="projects">
+    <h1 class="heading"> student <span>projects</span> </h1>
+    <div class="tools">
+        <input type="search" id="search" placeholder="search by title, keyword or author" aria-label="Search projects">
+        <select id="field" aria-label="Field">
+            <option value="all">all fields</option>
+            <option>biology</option><option>computer science</option><option>economics</option>
+            <option>engineering</option><option>environment</option><option>psychology</option>
+        </select>
+        <select id="level" aria-label="Level">
+            <option value="all">all levels</option>
+            <option>high school</option><option>undergraduate</option><option>postgraduate</option>
+        </select>
+    </div>
+    <div class="box-container" id="project-grid"></div>
+</section>
+
+<section class="about" id="agent">
+    <h1 class="heading"> <span>ai</span> research agent </h1>
+    <div class="agent-wrap">
+        <div class="agent-side">
+            <h3>what do you need?</h3>
+            <p>Pick a starting point or type your own question.</p>
+            <button data-prompt="Suggest topics on climate and food">Suggest a topic</button>
+            <button data-prompt="Write research questions about social media and focus">Draft research questions</button>
+            <button data-prompt="Which method should I use for a student survey?">Choose a method</button>
+            <button data-prompt="Write an outline for a paper on sleep and grades">Outline my paper</button>
+            <button data-prompt="How do I cite a journal article in APA?">Format a citation</button>
+            <button data-prompt="Give me a 12 week plan">Plan my timeline</button>
+        </div>
+        <div class="chat">
+            <div class="chat-log" id="chat-log" aria-live="polite"></div>
+            <form id="chat-form">
+                <input id="chat-input" type="text" placeholder="Ask about your research" aria-label="Message">
+                <button type="submit">send</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="doctors" id="mentors">
+    <h1 class="heading"> our <span>mentors</span> </h1>
+    <div class="box-container">
+        <div class="box"><img src="image/doc-1.jpg" alt="Portrait of dr. lena morris"><h3>dr. lena morris</h3><span>clinical research</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. lena morris"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+        <div class="box"><img src="image/doc-2.jpg" alt="Portrait of dr. arun perera"><h3>dr. arun perera</h3><span>public health</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. arun perera"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+        <div class="box"><img src="image/doc-3.jpg" alt="Portrait of dr. rohan mehta"><h3>dr. rohan mehta</h3><span>biomedical engineering</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. rohan mehta"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+        <div class="box"><img src="image/doc-4.jpg" alt="Portrait of dr. daniel ward"><h3>dr. daniel ward</h3><span>epidemiology</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. daniel ward"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+        <div class="box"><img src="image/doc-5.jpg" alt="Portrait of dr. james okoye"><h3>dr. james okoye</h3><span>cardiology research</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. james okoye"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+        <div class="box"><img src="image/doc-6.jpg" alt="Portrait of dr. marcus lindqvist"><h3>dr. marcus lindqvist</h3><span>health data science</span><div class="share"><a href="#submit" class="fas fa-envelope" aria-label="Contact dr. marcus lindqvist"></a><a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a></div></div>
+    </div>
+</section>
+
+<section class="book" id="submit">
+    <h1 class="heading"> <span>submit</span> your project </h1>
+    <form class="submit-form" id="submit-form">
+        <input class="box" name="title" placeholder="project title" required>
+        <input class="box" name="author" placeholder="your name" required>
+        <select class="box" name="field"><option>biology</option><option>computer science</option><option>economics</option><option>engineering</option><option>environment</option><option>psychology</option></select>
+        <select class="box" name="level"><option>high school</option><option>undergraduate</option><option>postgraduate</option></select>
+        <input class="box" name="tags" placeholder="tags, separated by commas">
+        <textarea class="box" name="summary" placeholder="what question does your project answer, and how?" required></textarea>
+        <button class="btn" type="submit">publish project</button>
+        <p class="toast" id="toast" role="status"></p>
+    </form>
+</section>
+
+<section class="review" id="review">
+    <h1 class="heading"> student <span>stories</span> </h1>
+    <div class="box-container">
+        <div class="box"><img src="image/pic-2.png" alt="Amara P."><h3>amara p.</h3><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text">The agent helped me turn a vague idea about water quality into a question I could test in one term.</p></div>
+        <div class="box"><img src="image/pic-1.png" alt="Kavindu R."><h3>kavindu r.</h3><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text">Seeing other survey projects showed me how to structure mine. My mentor's feedback fixed my sampling plan.</p></div>
+        <div class="box"><img src="image/pic-3.png" alt="Tariq H."><h3>tariq h.</h3><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text">Publishing my case study got me comments from people outside my class. It made the final paper stronger.</p></div>
+    </div>
+</section>
+
+<section class="blogs" id="resources">
+    <h1 class="heading"> research <span>resources</span> </h1>
+    <div class="box-container">
+        <div class="box"><div class="image"><img src="image/blog-1.jpg" alt="Researcher in a lab coat holding up a sample"></div><div class="content"><div class="icon"><a href="#"><i class="fas fa-clock"></i> 5 min read</a><a href="#"><i class="fas fa-tag"></i> basics</a></div><h3>how to choose a topic</h3><p>Start broad, list what you can measure, then narrow until one person could finish it.</p><a href="#agent" class="btn"> ask agent <span class="fas fa-chevron-right"></span> </a></div></div>
+        <div class="box"><div class="image"><img src="image/blog-2.jpg" alt="Typing notes on a laptop beside a stethoscope"></div><div class="content"><div class="icon"><a href="#"><i class="fas fa-clock"></i> 7 min read</a><a href="#"><i class="fas fa-tag"></i> writing</a></div><h3>reading papers fast</h3><p>Read the abstract, figures and conclusion first, then the methods only if it matters.</p><a href="#agent" class="btn"> ask agent <span class="fas fa-chevron-right"></span> </a></div></div>
+        <div class="box"><div class="image"><img src="image/blog-3.jpg" alt="Professional in a lab coat holding a stethoscope"></div><div class="content"><div class="icon"><a href="#"><i class="fas fa-clock"></i> 6 min read</a><a href="#"><i class="fas fa-tag"></i> ethics</a></div><h3>research ethics checklist</h3><p>Get consent, protect identities, store data safely and report results honestly.</p><a href="#agent" class="btn"> ask agent <span class="fas fa-chevron-right"></span> </a></div></div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="box-container">
+        <div class="box"><h3>quick links</h3>
+            <a href="#home"><i class="fas fa-chevron-right"></i> home </a><a href="#features"><i class="fas fa-chevron-right"></i> features </a><a href="#projects"><i class="fas fa-chevron-right"></i> projects </a><a href="#agent"><i class="fas fa-chevron-right"></i> ai agent </a><a href="#submit"><i class="fas fa-chevron-right"></i> submit </a></div>
+        <div class="box"><h3>fields</h3>
+            <a href="#projects"><i class="fas fa-chevron-right"></i> biology </a><a href="#projects"><i class="fas fa-chevron-right"></i> computer science </a><a href="#projects"><i class="fas fa-chevron-right"></i> engineering </a><a href="#projects"><i class="fas fa-chevron-right"></i> psychology </a></div>
+        <div class="box"><h3>contact</h3>
+            <a href="#"><i class="fas fa-envelope"></i> hello@researchme.example </a><a href="#"><i class="fas fa-map-marker-alt"></i> your campus, your city </a></div>
+        <div class="box"><h3>follow us</h3>
+            <a href="#"><i class="fab fa-twitter"></i> twitter </a><a href="#"><i class="fab fa-instagram"></i> instagram </a><a href="#"><i class="fab fa-linkedin"></i> linkedin </a></div>
+    </div>
+    <div class="credit"> <span>researchme</span> | built for student researchers </div>
+</section>
+
+<button class="to-top fas fa-arrow-up" aria-label="Back to top"></button>
+</div>
+
+<div class="dash" id="dashboard" hidden>
+  <aside class="side" id="side" aria-label="Dashboard menu">
+    <a href="#" class="logo" onclick="return false"><i class="fas fa-search"></i> researchme.</a>
+    <nav class="side-nav"><button type="button" data-view="overview"><i class="fas fa-th-large"></i> overview</button><button type="button" data-view="assistant"><i class="fas fa-robot"></i> ai assistant</button><button type="button" data-view="history"><i class="fas fa-history"></i> ai history</button><button type="button" data-view="projects"><i class="fas fa-folder-open"></i> my projects</button><button type="button" data-view="explore"><i class="fas fa-compass"></i> explore</button><button type="button" data-view="planner"><i class="fas fa-tasks"></i> planner</button><button type="button" data-view="profile"><i class="fas fa-user-circle"></i> profile</button></nav>
+    <div class="side-foot">
+      <div class="mini-user"><div class="avatar-sm" id="s-avatar"></div><div><b id="s-name"></b><small id="s-email"></small></div></div>
+      <button type="button" class="out-btn" id="side-logout"><i class="fas fa-sign-out-alt"></i> log out</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="main">
+    <header class="topbar">
+      <button type="button" id="side-toggle" class="fas fa-bars" aria-label="Open menu"></button>
+      <h2 id="view-title">overview</h2>
+      <button class="theme-btn fas fa-moon" type="button" aria-label="Switch to dark mode" aria-pressed="false"></button>
+      <button type="button" class="avatar-sm top-av" id="t-avatar" data-view="profile" aria-label="My profile"></button>
+    </header>
+    <main class="views">
+      <div class="view" id="view-overview">
+        <h3 class="dash-hello" id="o-hello"></h3>
+        <div class="cards">
+          <div class="stat"><i class="fas fa-comments"></i><b id="o-chats">0</b><small>ai conversations</small></div>
+          <div class="stat"><i class="fas fa-folder-open"></i><b id="o-projects">0</b><small>my projects</small></div>
+          <div class="stat"><i class="fas fa-heart"></i><b id="o-likes">0</b><small>likes received</small></div>
+          <div class="stat"><i class="fas fa-check-circle"></i><b id="o-tasks">0/0</b><small>tasks done</small></div>
+        </div>
+        <div class="two">
+          <div class="panel"><h4>recent ai chats</h4><div id="o-recent"></div><button class="link-btn" data-view="history">see all history</button></div>
+          <div class="panel"><h4>quick actions</h4>
+            <button class="act" data-view="assistant"><i class="fas fa-robot"></i> start a new ai chat</button>
+            <button class="act" data-view="projects"><i class="fas fa-plus"></i> publish a project</button>
+            <button class="act" data-view="planner"><i class="fas fa-tasks"></i> plan my research</button>
+            <button class="act" data-view="explore"><i class="fas fa-compass"></i> explore projects</button></div>
+        </div>
+      </div>
+      <div class="view" id="view-assistant" hidden>
+        <div class="chat">
+          <div class="chat-head"><b id="d-chat-title">new conversation</b><span><button class="mini" id="d-new" type="button"><i class="fas fa-plus"></i> new chat</button><button class="mini" data-view="history" type="button"><i class="fas fa-history"></i> history</button></span></div>
+          <div class="chat-log" id="d-log" aria-live="polite"></div>
+          <div class="chips"><button data-ask="Suggest topics on climate and food">topic ideas</button><button data-ask="Write research questions about sleep and focus">research questions</button><button data-ask="Which method should I use for a survey?">choose method</button><button data-ask="Write an outline for my paper">outline</button><button data-ask="How do I cite a journal article in APA?">apa citation</button></div>
+          <form id="d-form"><input id="d-input" placeholder="Ask about your research" aria-label="Message" autocomplete="off"><button type="submit">send</button></form>
+        </div>
+      </div>
+      <div class="view" id="view-history" hidden>
+        <div class="tools"><input type="search" id="h-search" placeholder="search your conversations" aria-label="Search history"><button class="mini danger wide" id="h-clear" type="button"><i class="fas fa-trash"></i> clear all</button></div>
+        <div id="h-list"></div>
+      </div>
+      <div class="view" id="view-projects" hidden>
+        <button class="btn" id="mp-new" type="button">new project <span class="fas fa-plus"></span></button>
+        <form class="submit-form" id="mp-form" hidden>
+          <input class="box" name="title" placeholder="project title" required>
+          <select class="box" name="field"><option>biology</option><option>computer science</option><option>economics</option><option>engineering</option><option>environment</option><option>psychology</option></select>
+          <select class="box" name="level"><option>high school</option><option>undergraduate</option><option>postgraduate</option></select>
+          <input class="box" name="tags" placeholder="tags, separated by commas">
+          <textarea class="box" name="summary" placeholder="what question does your project answer, and how?" required></textarea>
+          <button class="btn" type="submit">publish project</button>
+        </form>
+        <div class="projects"><div class="box-container" id="mp-list"></div></div>
+      </div>
+      <div class="view" id="view-explore" hidden>
+        <div class="tools"><input type="search" id="e-search" placeholder="search all projects" aria-label="Search projects"><label class="chk"><input type="checkbox" id="e-saved"> saved only</label></div>
+        <div class="projects"><div class="box-container" id="e-list"></div></div>
+      </div>
+      <div class="view" id="view-planner" hidden>
+        <div class="panel"><h4>research progress</h4><div class="bar"><span id="t-bar"></span></div><small id="t-text"></small>
+          <form id="t-form" class="t-form"><input id="t-input" placeholder="add a task, e.g. finish literature review" aria-label="New task" required><button class="btn" type="submit">add</button></form>
+          <ul id="t-list" class="t-list"></ul></div>
+      </div>
+      <div class="view" id="view-profile" hidden>
+    
+    <div class="profile-grid">
+        <div class="profile-card">
+            <div class="avatar" id="p-avatar"></div>
+            <h3 id="p-name"></h3>
+            <span class="tag" id="p-level"></span><span class="tag" id="p-field"></span>
+            <ul class="p-details">
+                <li><i class="fas fa-envelope"></i> <span id="p-email"></span></li>
+                <li><i class="fas fa-university"></i> <span id="p-inst"></span></li>
+                <li><i class="fas fa-calendar"></i> joined <span id="p-joined"></span></li>
+            </ul>
+            <p class="p-bio" id="p-bio"></p>
+            <div class="p-stats"><div><b id="p-projects">0</b><small>projects</small></div><div><b id="p-likes">0</b><small>likes</small></div></div>
+            <button class="btn" id="edit-btn" type="button">edit profile <span class="fas fa-pen"></span></button>
+            <button class="btn" id="logout-btn" type="button">log out <span class="fas fa-sign-out-alt"></span></button>
+        </div>
+        <div>
+            <form class="submit-form" id="edit-form" hidden>
+                <input class="box" name="name" placeholder="full name" required>
+                <input class="box" name="institution" placeholder="school or university" required>
+                <select class="box" name="field"><option>biology</option><option>computer science</option><option>economics</option><option>engineering</option><option>environment</option><option>psychology</option></select>
+                <select class="box" name="level"><option>high school</option><option>undergraduate</option><option>postgraduate</option></select>
+                <textarea class="box" name="bio" placeholder="short bio" maxlength="300"></textarea>
+                <button class="btn" type="submit">save changes</button>
+            </form>
+            <h3 class="p-sub">my projects</h3>
+            <div class="projects"><div class="box-container" id="my-projects"></div></div>
+        </div>
+    </div>
+</div>
+    </main>
+  </div>
+</div>
+
+<div class="modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title" hidden>
+    <div class="modal-box">
+        <button class="modal-close fas fa-times" id="auth-close" aria-label="Close"></button>
+        <h2 id="auth-title">welcome to researchme</h2>
+        <div class="tabs" role="tablist">
+            <button type="button" role="tab" id="tab-login" aria-selected="true">login</button>
+            <button type="button" role="tab" id="tab-register" aria-selected="false">register</button>
+        </div>
+        <form id="login-form" class="auth-form">
+            <input class="box" type="email" name="email" placeholder="email" autocomplete="email" required>
+            <input class="box" type="password" name="password" placeholder="password" autocomplete="current-password" required>
+            <p class="auth-msg" id="login-msg" role="alert"></p>
+            <button class="btn" type="submit">login</button>
+        </form>
+        <form id="register-form" class="auth-form" hidden>
+            <input class="box" name="name" placeholder="full name" autocomplete="name" required>
+            <input class="box" type="email" name="email" placeholder="email" autocomplete="email" required>
+            <input class="box" name="institution" placeholder="school or university" required>
+            <select class="box" name="field"><option>biology</option><option>computer science</option><option>economics</option><option>engineering</option><option>environment</option><option>psychology</option></select>
+            <select class="box" name="level"><option>high school</option><option>undergraduate</option><option>postgraduate</option></select>
+            <input class="box" type="password" name="password" placeholder="password (8+ characters)" minlength="8" autocomplete="new-password" required>
+            <input class="box" type="password" name="confirm" placeholder="confirm password" autocomplete="new-password" required>
+            <p class="auth-msg" id="register-msg" role="alert"></p>
+            <button class="btn" type="submit">create account</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
